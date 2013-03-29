@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .row.header
+      .span2
+        .logo
+        h1="Music"
+      .span6
+        .playback-controls(class=activeRadioStation ? "" : "hide")
+          i.icon-pause
+    .row
+      .span2
+        h3="Radio"
+  
+        ul.nav.nav-pills.nav-stacked#radio-stations
+          each rs in radiostations
+            li("data-url"=rs.url, class=((activeRadioStadion == rs.url) ? "active" : ""))
+              a(href="#")= rs.title
