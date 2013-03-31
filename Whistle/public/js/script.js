@@ -14,4 +14,15 @@ $(document).ready(function() {
 
 	});
 
+function stop() {
+	$.ajax({
+		url: "/stop", 
+		context: this,
+		success: function(data) {
+		  $(".playback-controls").fadeOut();
+		  $("#radio-stations li.active").removeClass("active")
+		}
+	});
+}
+
 
